@@ -14,6 +14,7 @@ RUN openssl req -newkey rsa:4096 -x509 -days 365 -nodes -out /etc/nginx/ssl/www.
 RUN chmod 777 /etc/nginx/ssl/*
 RUN chmod 777 -R /var/www 
 RUN chown -R www-data:www-data /var/www/
+RUN echo "127.0.0.1  akezanna.42.fr" >> /etc/hosts
 
 EXPOSE 443 
 ENTRYPOINT ["nginx","-g","daemon off;"]
